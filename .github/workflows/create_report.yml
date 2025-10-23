@@ -4,5 +4,5 @@ jobs:
   create-report:
     runs-on: ubuntu-latest
     steps:
-      - run: ./generate_report.sh
+      - run: jupyter nbconvert --to markdown notebook.ipynb --no-input --output report.md
   
