@@ -19,13 +19,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install nbconvert
       - name: Generate report
-        run: jupyter nbconvert --to markdown src/notebook.ipynb --no-input --output /reports/pair_regression.md
+        run: jupyter nbconvert --to markdown $GITHUB_WORKSPACE/src/notebook.ipynb --no-input --output $GITHUB_WORKSPACE/reports/pair_regression.md
 
       - name: Commit and push generated report if changed
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Report Generator"
-          git add /reports/pair_regression.md
+          git add $GITHUB_WORKSPACE/reports/pair_regression.md
           git diff --staged --quiet || git commit -m "Generated new pair_regression report in reports/pair_regression.md"
           git push
   
