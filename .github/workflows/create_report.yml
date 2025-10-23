@@ -4,5 +4,17 @@ jobs:
   create-report:
     runs-on: ubuntu-latest
     steps:
-      - run: jupyter nbconvert --to markdown notebook.ipynb --no-input --output report.md
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13.3'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install nbconvert
+    - name: Generate report
+      run: jupyter nbconvert --to markdown notebook.ipynb --no-input --output report.md
   
