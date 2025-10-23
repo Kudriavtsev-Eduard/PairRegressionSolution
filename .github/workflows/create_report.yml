@@ -1,0 +1,8 @@
+name: create_report
+on: push
+jobs:
+  create-report:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./generate_report.sh
+  
