@@ -8,77 +8,215 @@
 
 Главным объектом анализа была зависимость показателя "Ощущаемая температура" от реальной температуры
 
-
-    ---------------------------------------------------------------------------
-
-    FileNotFoundError                         Traceback (most recent call last)
-
-    Cell In[20], line 1
-    ----> 1 df = pandas.read_csv('data/weatherHistory.csv')
-          2 print(len(df))
-          3 x_title = 'Temperature (C)'
+    96453
 
 
-    File ~/PycharmProjects/PairRegressionSolution/.venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py:1026, in read_csv(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)
-       1013 kwds_defaults = _refine_defaults_read(
-       1014     dialect,
-       1015     delimiter,
-       (...)   1022     dtype_backend=dtype_backend,
-       1023 )
-       1024 kwds.update(kwds_defaults)
-    -> 1026 return _read(filepath_or_buffer, kwds)
 
 
-    File ~/PycharmProjects/PairRegressionSolution/.venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py:620, in _read(filepath_or_buffer, kwds)
-        617 _validate_names(kwds.get("names", None))
-        619 # Create the parser.
-    --> 620 parser = TextFileReader(filepath_or_buffer, **kwds)
-        622 if chunksize or iterator:
-        623     return parser
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-    File ~/PycharmProjects/PairRegressionSolution/.venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py:1620, in TextFileReader.__init__(self, f, engine, **kwds)
-       1617     self.options["has_index_names"] = kwds["has_index_names"]
-       1619 self.handles: IOHandles | None = None
-    -> 1620 self._engine = self._make_engine(f, self.engine)
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Formatted Date</th>
+      <th>Summary</th>
+      <th>Precip Type</th>
+      <th>Temperature (C)</th>
+      <th>Apparent Temperature (C)</th>
+      <th>Humidity</th>
+      <th>Wind Speed (km/h)</th>
+      <th>Wind Bearing (degrees)</th>
+      <th>Visibility (km)</th>
+      <th>Loud Cover</th>
+      <th>Pressure (millibars)</th>
+      <th>Daily Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2006-04-01 00:00:00.000 +0200</td>
+      <td>Partly Cloudy</td>
+      <td>rain</td>
+      <td>9.472222</td>
+      <td>7.388889</td>
+      <td>0.89</td>
+      <td>14.1197</td>
+      <td>251.0</td>
+      <td>15.8263</td>
+      <td>0.0</td>
+      <td>1015.13</td>
+      <td>Partly cloudy throughout the day.</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2006-04-01 01:00:00.000 +0200</td>
+      <td>Partly Cloudy</td>
+      <td>rain</td>
+      <td>9.355556</td>
+      <td>7.227778</td>
+      <td>0.86</td>
+      <td>14.2646</td>
+      <td>259.0</td>
+      <td>15.8263</td>
+      <td>0.0</td>
+      <td>1015.63</td>
+      <td>Partly cloudy throughout the day.</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2006-04-01 02:00:00.000 +0200</td>
+      <td>Mostly Cloudy</td>
+      <td>rain</td>
+      <td>9.377778</td>
+      <td>9.377778</td>
+      <td>0.89</td>
+      <td>3.9284</td>
+      <td>204.0</td>
+      <td>14.9569</td>
+      <td>0.0</td>
+      <td>1015.94</td>
+      <td>Partly cloudy throughout the day.</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2006-04-01 03:00:00.000 +0200</td>
+      <td>Partly Cloudy</td>
+      <td>rain</td>
+      <td>8.288889</td>
+      <td>5.944444</td>
+      <td>0.83</td>
+      <td>14.1036</td>
+      <td>269.0</td>
+      <td>15.8263</td>
+      <td>0.0</td>
+      <td>1016.41</td>
+      <td>Partly cloudy throughout the day.</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2006-04-01 04:00:00.000 +0200</td>
+      <td>Mostly Cloudy</td>
+      <td>rain</td>
+      <td>8.755556</td>
+      <td>6.977778</td>
+      <td>0.83</td>
+      <td>11.0446</td>
+      <td>259.0</td>
+      <td>15.8263</td>
+      <td>0.0</td>
+      <td>1016.51</td>
+      <td>Partly cloudy throughout the day.</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>2006-04-20 07:00:00.000 +0200</td>
+      <td>Foggy</td>
+      <td>rain</td>
+      <td>10.161111</td>
+      <td>10.161111</td>
+      <td>0.99</td>
+      <td>0.3381</td>
+      <td>81.0</td>
+      <td>0.4347</td>
+      <td>0.0</td>
+      <td>1013.61</td>
+      <td>Foggy starting overnight continuing until morn...</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>2006-04-20 08:00:00.000 +0200</td>
+      <td>Foggy</td>
+      <td>rain</td>
+      <td>11.244444</td>
+      <td>11.244444</td>
+      <td>0.98</td>
+      <td>2.7531</td>
+      <td>358.0</td>
+      <td>0.6923</td>
+      <td>0.0</td>
+      <td>1013.90</td>
+      <td>Foggy starting overnight continuing until morn...</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>2006-04-20 09:00:00.000 +0200</td>
+      <td>Foggy</td>
+      <td>rain</td>
+      <td>12.244444</td>
+      <td>12.244444</td>
+      <td>0.99</td>
+      <td>2.2540</td>
+      <td>152.0</td>
+      <td>2.2057</td>
+      <td>0.0</td>
+      <td>1014.31</td>
+      <td>Foggy starting overnight continuing until morn...</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>2006-04-20 10:00:00.000 +0200</td>
+      <td>Overcast</td>
+      <td>rain</td>
+      <td>13.911111</td>
+      <td>13.911111</td>
+      <td>0.92</td>
+      <td>8.0983</td>
+      <td>135.0</td>
+      <td>4.2021</td>
+      <td>0.0</td>
+      <td>1014.43</td>
+      <td>Foggy starting overnight continuing until morn...</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>2006-04-20 11:00:00.000 +0200</td>
+      <td>Partly Cloudy</td>
+      <td>rain</td>
+      <td>15.616667</td>
+      <td>15.616667</td>
+      <td>0.82</td>
+      <td>2.2862</td>
+      <td>153.0</td>
+      <td>6.3112</td>
+      <td>0.0</td>
+      <td>1014.73</td>
+      <td>Foggy starting overnight continuing until morn...</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 12 columns</p>
+</div>
 
-    File ~/PycharmProjects/PairRegressionSolution/.venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py:1880, in TextFileReader._make_engine(self, f, engine)
-       1878     if "b" not in mode:
-       1879         mode += "b"
-    -> 1880 self.handles = get_handle(
-       1881     f,
-       1882     mode,
-       1883     encoding=self.options.get("encoding", None),
-       1884     compression=self.options.get("compression", None),
-       1885     memory_map=self.options.get("memory_map", False),
-       1886     is_text=is_text,
-       1887     errors=self.options.get("encoding_errors", "strict"),
-       1888     storage_options=self.options.get("storage_options", None),
-       1889 )
-       1890 assert self.handles is not None
-       1891 f = self.handles.handle
-
-
-    File ~/PycharmProjects/PairRegressionSolution/.venv/lib/python3.13/site-packages/pandas/io/common.py:873, in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)
-        868 elif isinstance(handle, str):
-        869     # Check whether the filename is to be opened in binary mode.
-        870     # Binary mode does not support 'encoding' and 'newline'.
-        871     if ioargs.encoding and "b" not in ioargs.mode:
-        872         # Encoding
-    --> 873         handle = open(
-        874             handle,
-        875             ioargs.mode,
-        876             encoding=ioargs.encoding,
-        877             errors=errors,
-        878             newline="",
-        879         )
-        880     else:
-        881         # Binary mode
-        882         handle = open(handle, ioargs.mode)
-
-
-    FileNotFoundError: [Errno 2] No such file or directory: 'data/weatherHistory.csv'
 
 
 ## Задание 2
@@ -99,7 +237,7 @@
 
 Далее посчитаем коэффициент корреляции Пирсона и проверим его значимость по t-статистике $t_н = \dfrac{|r|*\sqrt{n-2}}{\sqrt{1-r^2}}$
 
-Доверительный интервал для него будет вычисляться с помощью Z-преобразования Фишера: $(arcth r^{*} - \dfrac{u_{\gamma}}{n-3}, arcth r^{*} + \dfrac{u_{\gamma}}{n-3})$, где $u_{\gamma}$ - квантиль стандартного нормального распределения уровня $\gamma=1-\dfrac{\alpha}{2}$
+Доверительный интервал для него будет вычисляться с помощью Z-преобразования Фишера
 
     Нормальность X: True
     Нормальность Y: True
@@ -157,7 +295,7 @@
 
 
     Проверка условий Гаусса-Маркова
-        1. Cумма остатков ~=0: True
+        1. Cумма остатков =0: True
         2. Отсутствие автокорреляции (тест Бройша-Годфрея): False
         3. Отсутствие гетероскедастичности (тест Уайта): False
         4. Нормальность остатков: True
