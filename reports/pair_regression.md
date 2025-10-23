@@ -223,7 +223,7 @@
 
 
     
-![png](/home/runner/work/PairRegressionSolution/PairRegressionSolution/reports/pair_regression_5_0.png)
+![png](reports/pair_regression_files/reports/pair_regression_5_0.png)
     
 
 
@@ -273,7 +273,7 @@
 
 
     
-![png](/home/runner/work/PairRegressionSolution/PairRegressionSolution/reports/pair_regression_11_1.png)
+![png](reports/pair_regression_files/reports/pair_regression_11_1.png)
     
 
 
@@ -290,7 +290,7 @@
 
 
     
-![png](/home/runner/work/PairRegressionSolution/PairRegressionSolution/reports/pair_regression_13_1.png)
+![png](reports/pair_regression_files/reports/pair_regression_13_1.png)
     
 
 
@@ -326,7 +326,7 @@
 
 
     
-![png](/home/runner/work/PairRegressionSolution/PairRegressionSolution/reports/pair_regression_21_0.png)
+![png](reports/pair_regression_files/reports/pair_regression_21_0.png)
     
 
 
