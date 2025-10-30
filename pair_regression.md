@@ -48,7 +48,7 @@ $E (E_s) = -\frac{6}{n+1}$
 
 $D_{E_s} = \frac{24n(n-2)(n-3)}{(n+1)^2(n+3)(n+5)}$
 
-$X = \frac{E_s - E(E_s)}{\sqrt{\text{Var}(E_s)}}$
+$X = \frac{E_s - E(E_s)}{\sqrt{D(E_s)}}$
 
 $\beta_1 = \frac{6(n^2 - 5n + 2)}{(n+7)(n+9)} \sqrt{\frac{6(n+3)(n+5)}{n(n-2)(n-3)}}$
 
